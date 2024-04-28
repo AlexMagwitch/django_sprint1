@@ -6,8 +6,8 @@
 
 {% block content %}
   <h1>Лента записей</h1>
-  <hr />
   {% for post in posts %}
+    <hr>
     <article>
       <ul>
         <li>Место: {{ post.location }}</li>
@@ -18,9 +18,8 @@
       </ul>
       <p>{{ post.text|truncatewords:10 }}</p>
       <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-      <hr />
     </article>
-    {% empty %}
-    <p>Нет записей.</p>
+  {% empty %}
+  <p>Нет записей.</p>
   {% endfor %}
 {% endblock %}
